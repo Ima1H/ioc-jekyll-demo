@@ -1,13 +1,79 @@
 ---
 layout: default
 title: Homepage
+news: 
+- title: Big sale
+  description: Exciting things are happening
+  date: 13th Jan
+  category: Hello
+  url: https://www.sale.com
+- title: New recipe
+  description: Exciting things are happening
+  date: 28th Jul
+  category: Promo
+  url: https://www.sale.com
+- title: New vlog
+  description: What happens in Vietnam?
+  date: 7th Aug
+  category: Undersea
+  url: https://www.sale.com
+- title: Hello world
+  description: What happens in Vietnam?
+  date: 7th Aug
+  category: Undersea
+  url: https://www.sale.com
+
+services: 
+- title: Store
+  description: Check out our magical bouquets at our store
+  url: https://www.sale.com
+- title: Subscription
+  description: Have your own bouquet as often as you like
+  url: https://www.sale.com
+- title: Home Delivery
+  description: We deliver yout bouquet for when you don't have time
+  url: https://www.sale.com
+- title: Workshops
+  description: Learn how to make your own masterpieces
+  url: https://www.sale.com
 ---
 
-
-<section> 
-    <div class="card"> 
-        <h2> Apple </h2>
-        <p> The best fruit.</p>
+<section class="grid-spaceBetween padded-5 bg-featured">     
+    {% for item in page.news %}
+    <!---- First Card ----->
+    <div class="col-4_xs-8"> 
+      <div class="card"> 
+        <div class="bg-image bg-image-1 portrait"> 
+          <span> {{item.category}} </span>
+        </div>
+      
+        <div class="post-info"> 
+          <p class="date"> {{item.date}}</p>
+          <h3> {{item.title}}</h3>
+          <p> {{item.description}}</p>
+          <a href="{{item.url}}"> <i class="fas fa-chevron-circle-right"></i> &nbsp; Find out more </a>
+       </div>
+      </div>
+     </div> 
+     {% endfor %}
     </div>
 </section>
 
+<section class="padded-5 text-center bg-dark">
+  <h2> Our Services </h2>
+    
+  <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati provident, fugit ipsa magnam nihil velit eius maiores excepturi aut nostrum suscipit officiis voluptatum alias ipsam. </p>
+    
+  <div class="grid-equalHeight padded-1">  
+    {% for item in page.services %}
+    <div class="padded-05 col-3"> 
+        <a href="{{item.url}}" class="clickable-box bg-image" style="background-image: url('/images/las-flores-co-store-small.jpg');"> 
+            <div class="overlay"> 
+                <h3> {{item.title}} </h3>
+                <p> {{item.description}} </p>
+            </div>
+        </a>
+    </div>  
+    {% endfor %}
+  </div>
+</section>
